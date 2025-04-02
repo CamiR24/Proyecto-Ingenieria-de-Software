@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  line-height: 0.5;
+  font-weight: 200;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  display: block;
+}
+
+.background {
+  background-image: url('./assets/home.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-box {
+  background-color: rgba(36, 56, 132, 0.8); /* Azul semitransparente */
+  color: white;
+  padding: 10vw;
+  border-radius: 10px;
+  text-align: left;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+}
+
+.overlay-box::before {
+  content: "";
+  position: absolute;
+  bottom: -25vh; 
+  right: -25vw;  
+  width: 85%; 
+  height: 70%;  
+  border: 0.5vw solid white;  
+  border-radius: 2vw;  
+}
+
+.overlay-box h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.overlay-box p {
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: 300;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* .login-container {
+  margin-top: 20px;
+  position: relative;
+  z-index: 10;
+} */
+
+.form {
+  width: 400px;
+  margin: 0 auto;
+}
+
+/* input[type="text"],
+[type="password"] {
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 5px 0 10px 0;
+} */
+
+input[type="button"],
+button {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  padding: 1.5vw 3vw;  
+  font-size: clamp(1rem, 2vw, 1.2rem); 
+  min-width: 120px;
+  max-width: 210px;  
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: #243884;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 15vw; 
+  max-width: 180px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+nav {
+  display: none;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 10px;
+}
+
+a {
+  color: rgb(97, 28, 161);
+  text-decoration: none;
+}
+
+.dashboard {
+  width: 500px;
+  margin: auto;
+}
+
+.errorMessage {
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .overlay-box {
+    width: 95%;
+    padding: 8vw;
+  }
+
+  .overlay-box h1 {
+    font-size: 2.5rem;
+  }
+
+  .overlay-box p {
+    font-size: 1.5rem;
+  }
+
+  input[type="button"],
+  button {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  input[type="button"],
+  button {
+    position: static;  /* 📌 Elimina la posición absoluta en móviles */
+    width: 100%;  /* 📌 Ocupa todo el ancho disponible */
+    padding: 12px 20px;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 20px; /* 📌 Espacio extra para que no se junte con otros elementos */
+  }
+
+  .overlay-box::before {
+    bottom: -5vh;  /* 📌 Menos espacio para pantallas pequeñas */
+    right: -5vw;
+    width: 90%;
+    height: 50%;
+    border: 2px solid white; /* 📌 Reduce el grosor de la línea */
+    border-radius: 10px;
+  }
+}
