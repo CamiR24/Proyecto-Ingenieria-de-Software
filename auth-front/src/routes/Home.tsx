@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import DefaultLayout from "../layout/DefaultLayout";
 import logo from "../assets/logo.png"; //CAMBIARRRR
 
 export default function Home(){
+    const navigate = useNavigate();
+
     return (
         <div className="background">
             <div className="overlay-box">
@@ -11,7 +14,7 @@ export default function Home(){
                 <p>Recursos Humanos</p>
 
                 <div className="login-container">
-                    <button>Iniciar sesión</button>
+                    <button onClick={() => navigate("/login")}>Iniciar sesión</button>
                 </div>
                 </DefaultLayout>
             
