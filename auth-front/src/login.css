@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/*CSS Login*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); /*Letra Inter*/
 
-#root {
+:root {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
-    line-height: 0.5;
+    line-height: 1.2;
     font-weight: 150;
   }
   
@@ -10,11 +11,8 @@
     padding: 0;
     margin: 0;
   }
-  
-  label {
-    display: block;
-  }
 
+  /* Fondo edificios */
   .background-login {
     background-image: url('./assets/home.jpeg');
     background-size: cover;
@@ -25,6 +23,7 @@
     align-items: center;
   }
 
+  /* Cuadro azul */
   .overlay-box-login {
     background-color: rgba(36, 56, 132, 0.8); /* Azul semitransparente */
     color: white;
@@ -38,18 +37,12 @@
     left: 20%;
   }
   
-  .overlay-box h1 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    font-weight: 200;
-    margin-bottom: 5px;
-    text-align: left;
-  }
-  
-  .overlay-box p {
-    font-size: clamp(1rem, 3vw, 2rem);
-    font-weight: 300;
-    margin-bottom: 5px;
-    text-align: left;
+  /* Título */
+  .overlay-box-login h1 {
+    font-size: clamp(1rem, 3.5vw, 3rem);
+    font-weight: 150;
+    margin-top: 5px;
+    text-align: center;
   }
   
   body .form {
@@ -57,57 +50,43 @@
     margin: 0 auto;
   }
   
+  /* Cuadros input */
   input[type="text"],
   [type="password"] {
     display: block;
-    padding: 10px;
+    font-size: clamp(1rem, 0vw, 1rem);
+    padding: 20px;
     box-sizing: border-box;
-    width: 100%;
-    margin: 5px 0 10px 0;
-  }
-  
-  
-  .button-login button {
-    background-color: #7FB2D5; /* Azul oscuro */
-    color: #243884;
-    padding: 12px 24px;
-    font-size: 18px;
     border-radius: 8px;
     border: white;
+    width: 100%;
+    margin: 5px 0 10px 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+  }
+
+  label {
+    font-size: clamp(1rem, 1.5vw, 1.5rem); 
+    margin-bottom: 5px; 
+    display: block;
+  }
+
+  /* Botón Login */
+  .button-login button {
+    background-color: #7FB2D5;
+    color: #243884;
+    padding: 15px 45px;
+    font-size: 17px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    border-radius: 8px;
+    border: 3px solid white;
     cursor: pointer;
     transition: background 0.3s ease;
+    position: relative;
+    left: 0%;
+    margin-top: 15%;
   }
   
   .button-login button:hover {
     background-color: #f0f0f0;
   transform: scale(1.05);
-  }
-  
-  nav {
-    background-color: #eee;
-  }
-  
-  nav ul {
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline-block;
-    padding: 10px;
-  }
-  
-  a {
-    color: rgb(97, 28, 161);
-    text-decoration: none;
-  }
-  
-  .dashboard {
-    width: 500px;
-    margin: auto;
-  }
-  
-  .errorMessage {
-    background-color: #f2dede;
-    color: #a94442;
-    padding: 10px;
   }

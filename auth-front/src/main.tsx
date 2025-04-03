@@ -8,9 +8,10 @@ import Dashboard from './routes/Dashboard.tsx'
 import ProtectedRoute from './routes/ProtectedRoute.tsx'
 import { AuthProvider } from './auth/AuthProvider.tsx'
 
+//Creación rutas en URL
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/", 
     element: <Home />,
   },
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <ProtectedRoute />,
+    element: <ProtectedRoute />, //Solo si tiene el usuario y contraseña dejará entrar
     children: [
       {
         path: "/dashboard",

@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); /*Letra Inter*/
+/* CSS de Home 
+TOMAR EN CUENTA: estilos de cosas en TODA la página */
 
 :root {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   line-height: 0.5;
-  font-weight: 200;
+  font-weight: 250;
 }
 
 body {
@@ -11,10 +13,7 @@ body {
   margin: 0;
 }
 
-label {
-  display: block;
-}
-
+/* Fondo edificios */
 .background {
   background-image: url('./assets/home.jpeg');
   background-size: cover;
@@ -25,6 +24,7 @@ label {
   align-items: center;
 }
 
+/* Cuadro azul */
 .overlay-box {
   background-color: rgba(36, 56, 132, 0.8); /* Azul semitransparente */
   color: white;
@@ -36,68 +36,68 @@ label {
   position: relative;
 }
 
+/* Línea blanca */
 .overlay-box::before {
   content: "";
   position: absolute;
-  bottom: -40vh; 
-  right: -30svw;  
+  bottom: -47vh; 
+  right: -23svw;  
   width: 85%; 
   height: 95%;  
   border: 0.6vw solid white;  
   border-radius: 2vw;  
 }
 
+/* Título */
 .overlay-box h1 {
-  font-size: clamp(2.3rem, 5.5vw, 4.5rem);
-  font-weight: 350;
-  margin-bottom: 5px;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 370;
+  margin-bottom: 0px;
+  margin-top: -20px;
   text-align: left;
+  line-height: 0.7;
 }
 
+/* Subtítulo */
 .overlay-box p {
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 3rem);
   font-weight: 300;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   text-align: left;
 }
-
-/* .button-container {
-  margin-top: 10px;
-  position: relative;
-  z-index: 10;
-} */
 
 .form {
   width: 400px;
   margin: 0 auto;
 }
 
+/* Botón */
 input[type="button"],
 button {
   position: absolute;
   bottom: 5%;
   right: 5%;
-  padding: 1.3vw 3vw;  
-
-  
+  padding: 1.5vw 3.5vw;  
   min-width: 120px;
   max-width: 210px;  
   border: none;
   border-radius: 10px;
   background-color: white;
   color: #243884;
-  font-size: clamp(1.2rem, 2vw, 1.2rem); 
+  font-size: clamp(1.2rem, 2vw, 1.5rem); 
   font-family: 'Inter', Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-weight: 550;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, transform 0.2s;
 }
 
+/* Transition botón */
 button:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
 }
 
+/* Espacio para logo */
 .logo {
   position: absolute;
   top: 0px;
@@ -110,6 +110,7 @@ button:hover {
   border-radius: 10px;
 }
 
+/* OTROS ESTILOS */
 nav {
   display: none;
 }
@@ -139,6 +140,7 @@ a {
   padding: 10px;
 }
 
+/* Adaptación pantallas */
 @media (max-width: 768px) {
   .overlay-box {
     width: 95%;

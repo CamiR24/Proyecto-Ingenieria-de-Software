@@ -9,14 +9,17 @@ export default function Home(){
     return (
         <div className="background">
             <div className="overlay-box">
-                <DefaultLayout>
-                <img src={logo} alt="EntrApp Logo" className="logo" />
-                <h1>EntrApp</h1>
-                <p>Recursos Humanos</p>
 
-                
+                <DefaultLayout>
+
+                    <img src={logo} alt="EntrApp Logo" className="logo" />
+
+                    <h1>EntrApp</h1>
+
+                    <p>Recursos Humanos</p>
+
                     <button onClick={() => navigate("/login")}>Ingresar</button>
-                
+
                 </DefaultLayout>
             
             </div>
