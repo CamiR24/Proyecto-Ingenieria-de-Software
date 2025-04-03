@@ -1,7 +1,9 @@
-:root {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+#root {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    line-height: 0.5;
+    font-weight: 150;
   }
   
   body {
@@ -12,8 +14,45 @@
   label {
     display: block;
   }
+
+  .background-login {
+    background-image: url('./assets/home.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay-box-login {
+    background-color: rgba(36, 56, 132, 0.8); /* Azul semitransparente */
+    color: white;
+    padding: 5vw;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    height: 60%;
+    max-width: 400px;
+    position: relative;
+    left: 20%;
+  }
   
-  .form {
+  .overlay-box h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 200;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .overlay-box p {
+    font-size: clamp(1rem, 3vw, 2rem);
+    font-weight: 300;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  body .form {
     width: 400px;
     margin: 0 auto;
   }
@@ -27,14 +66,21 @@
     margin: 5px 0 10px 0;
   }
   
-  input[type="button"],
-  button {
-    background-color: rgb(39, 131, 212);
-    padding: 10px;
-    border: 0;
-    min-width: 100px;
-    border-radius: 5px;
-    color: white;
+  
+  .button-login button {
+    background-color: #7FB2D5; /* Azul oscuro */
+    color: #243884;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .button-login button:hover {
+    background-color: #f0f0f0;
+  transform: scale(1.05);
   }
   
   nav {

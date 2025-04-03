@@ -15,17 +15,24 @@ export default function Login(){
     }
 
     return (
-    <DefaultLayout>
-         <form className="form"> 
-        <h1>Login</h1>
-        <label>Usuario</label>
-        <input type="text" value = {username} onChange={(e) => setUsername(e.target.value)}/>
+        <div className = "background-login">
+            <div className = "overlay-box-login">
+            <DefaultLayout>
+                <form className="form"> 
+                <h1>Ingrese a su Cuenta </h1>
+                <label>Usuario</label>
+                <input type="text" value = {username} onChange={(e) => setUsername(e.target.value)}/>
 
-        <label>Contraseña</label>
-        <input type="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+                <label>Contraseña</label>
+                <input type="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
 
-        <button>Iniciar Sesión</button>
-    </form>
-    </DefaultLayout>
+                <div className="button-login">
+                    <button>Iniciar Sesión</button>
+                </div>
+            </form>
+            </DefaultLayout>
+            </div>
+        </div>
+
    );
 }
