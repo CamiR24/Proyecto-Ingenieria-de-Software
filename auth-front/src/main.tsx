@@ -7,6 +7,7 @@ import Login from './routes/Login.tsx'
 import Dashboard from './routes/Dashboard.tsx'
 import ProtectedRoute from './routes/ProtectedRoute.tsx'
 import { AuthProvider } from './auth/AuthProvider.tsx'
+import QRCheckIn from './routes/QRCheckIn.tsx'
 
 //Creación rutas en URL
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/qr",
+    element: <QRCheckIn />,
   },
   {
     path: "/",
