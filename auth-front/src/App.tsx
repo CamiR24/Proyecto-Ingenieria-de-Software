@@ -1,17 +1,19 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './auth/Login';
-import Home from './routes/Home'; // Ejemplo de otro componente
+import Dashboard from './routes/Dashboard';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        {/* Si la ruta no coincide, redirige al Login */}
+        <Route path="*" element={<Login />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

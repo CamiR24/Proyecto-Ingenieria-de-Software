@@ -1,39 +1,77 @@
-import { useState } from "react";
-import DefaultLayout from "../layout/DefaultLayout"
-import { useAuth } from "../auth/AuthProvider";
-import { Navigate } from "react-router-dom";
-import "../login.css"
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../login.css'; // Asegurate de que la ruta sea correcta
 
-export default function Login(){
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+const Login: React.FC = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
-    //FALTA
-    const auth = useAuth();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Previene que la página se recargue
+    console.log('handleSubmit iniciado'); // Depuración
+    setErrorMessage(null);
 
-    if(auth.isAuthenticated){
-        return <Navigate to="/dashboard" />;
+    try {
+      const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+      console.log('Respuesta del servidor:', data); // Depuración
+
+      if (response.ok) {
+        // Si el login es exitoso, redirige al Dashboard
+        navigate('/dashboard');
+      } else {
+        setErrorMessage(data.message || 'Usuario o contraseña incorrectos');
+      }
+    } catch (error) {
+      console.error('Error en el fetch:', error);
+      setErrorMessage('Error al conectar con el servidor');
     }
+  };
 
-    return (
-        <div className = "background-login">
-            <div className = "overlay-box-login">
-            <DefaultLayout>
-                <form className="form"> 
-                <h1>Ingrese a su Cuenta </h1>
-                <label>Usuario</label>
-                <input type="text" value = {username} onChange={(e) => setUsername(e.target.value)}/>
+  return (
+    <div className="background-login">
+      <div className="overlay-box-login">
+        <form onSubmit={handleSubmit} className="form">
+          <h1>Iniciar Sesión</h1>
 
-                <label>Contraseña</label>
-                <input type="password" value = {password} onChange={(e) => setPassword(e.target.value)}/>
+          <label htmlFor="username">Usuario</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Ingresa tu usuario"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
 
-                <div className="button-login">
-                    <button>Iniciar Sesión</button>
-                </div>
-            </form>
-            </DefaultLayout>
-            </div>
-        </div>
+          <label htmlFor="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Ingresa tu contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-   );
-}
+          <div className="button-login">
+            <button type="submit">Iniciar sesión</button>
+          </div>
+        </form>
+
+        {errorMessage && (
+          <div className="message" style={{ marginTop: '20px', fontWeight: 600, color: 'white' }}>
+            {errorMessage}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Login;

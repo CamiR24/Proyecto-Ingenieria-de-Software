@@ -1,34 +1,38 @@
+// src/auth/Login.tsx
+
 import React, { useState } from 'react';
-import '../login.css'; // Asegurate que esta ruta exista
+import { useNavigate } from 'react-router-dom';
+import '../login.css'; // Asegurate de que la ruta sea correcta
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // 🚫 Detiene el refresh del form
-    setMessage(null);
+    e.preventDefault(); // Evita que la página se recargue
+
+    setErrorMessage(null); // Limpia mensajes anteriores
 
     try {
       const response = await fetch('http://localhost:3000/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(`✅ ${data.message}`);
+        // Si el login es exitoso, redirige al dashboard
+        navigate('/dashboard');
       } else {
-        setMessage(`❌ ${data.message || 'Credenciales incorrectas'}`);
+        setErrorMessage(data.message || 'Usuario o contraseña incorrectos');
       }
     } catch (error) {
       console.error(error);
-      setMessage('⚠️ Error al conectar con el servidor');
+      setErrorMessage('Error al conectar con el servidor');
     }
   };
 
@@ -36,23 +40,23 @@ const Login: React.FC = () => {
     <div className="background-login">
       <div className="overlay-box-login">
         <form onSubmit={handleSubmit} className="form">
-          <h1>Iniciar sesión</h1>
+          <h1>Iniciar Sesión</h1>
 
           <label htmlFor="username">Usuario</label>
           <input
-            id="username"
             type="text"
+            id="username"
+            placeholder="Ingresa tu usuario"
             value={username}
-            placeholder="Ingrese su usuario"
             onChange={(e) => setUsername(e.target.value)}
           />
 
           <label htmlFor="password">Contraseña</label>
           <input
-            id="password"
             type="password"
+            id="password"
+            placeholder="Ingresa tu contraseña"
             value={password}
-            placeholder="Ingrese su contraseña"
             onChange={(e) => setPassword(e.target.value)}
           />
 
@@ -61,9 +65,9 @@ const Login: React.FC = () => {
           </div>
         </form>
 
-        {message && (
-          <div style={{ marginTop: '20px', fontWeight: 600, color: 'white' }}>
-            {message}
+        {errorMessage && (
+          <div className="message" style={{ marginTop: '20px', fontWeight: 600, color: 'white' }}>
+            {errorMessage}
           </div>
         )}
       </div>
