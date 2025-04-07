@@ -3,6 +3,7 @@
     "qrcode": "^1.5.4",
     "qrcode.react": "^4.2.0",
     "react-icons": "^5.5.0",
-    "react-qr-reader": "^3.0.0-beta-1"
+    "react-qr-reader": "^3.0.0-beta-1",
+    "react-router-dom": "^6.22.1"
   }
 }
