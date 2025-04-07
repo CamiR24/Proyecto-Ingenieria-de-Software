@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../login.css'; // Asegurate que esta ruta exista
+import '../login.css';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');

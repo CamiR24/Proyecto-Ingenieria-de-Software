@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client'
 import "./index.css"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './routes/Home.tsx'
-import Login from './routes/Login.tsx'
+//import Login from './routes/Login.tsx' //de routes o auth??
+import Login2 from './auth/Login.tsx'
 import Dashboard from './routes/Dashboard.tsx'
 import ProtectedRoute from './routes/ProtectedRoute.tsx'
 import { AuthProvider } from './auth/AuthProvider.tsx'
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Login2 />,
   },
   {
     path: "/qr",
